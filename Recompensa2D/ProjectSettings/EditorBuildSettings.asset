@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TelaSplash.unity
+    guid: ea183dac56dc4a9469d83c41f9a3a849
+  - enabled: 1
+    path: Assets/Scenes/TelaDeInstrucao.unity
+    guid: a436aee646a4d594384db7f50f246572
+  - enabled: 1
+    path: Assets/Scenes/Principal.unity
+    guid: 5a983eec32bbb8b4f8082dc43d518887
