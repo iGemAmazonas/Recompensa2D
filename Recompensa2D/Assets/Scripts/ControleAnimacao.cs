@@ -14,10 +14,10 @@ public class ControleAnimacao : MonoBehaviour
             controle = true;
         }
 
-        mudarEstado(controle);        
+        MudarEstado(controle);        
     }
 
-    private void mudarEstado(bool estado)
+    private void MudarEstado(bool estado)
     {
         anim.SetTrigger("Vai");
         //anim.SetBool("Começar", estado);
