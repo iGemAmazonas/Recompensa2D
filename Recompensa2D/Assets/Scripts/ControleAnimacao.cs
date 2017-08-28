@@ -5,23 +5,24 @@ using UnityEngine;
 public class ControleAnimacao : MonoBehaviour
 {
     public Animator anim;
-    private bool controle;
+    private bool estado;
 
     public void StartClick ()
     {
-        if(controle==false)
-        {
-            controle = true;
-        }
+        estado = true;
 
-        MudarEstado(controle);        
+        MudarEstado(estado);        
+    }
+
+    public void PauseClick()
+    {
+        estado = false;
+        MudarEstado(estado);
     }
 
     private void MudarEstado(bool estado)
     {
-        anim.SetTrigger("Vai");
-        //anim.SetBool("Começar", estado);
-        
+        anim.SetBool("Estado", estado);
     }
 
 
