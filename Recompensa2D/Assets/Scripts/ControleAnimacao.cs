@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class ControleAnimacao : MonoBehaviour
 {
     public Animator anim;
-    private bool estado;
+    private bool estado,encontrada;
+    public GameObject handle;
+
 
     public void StartClick ()
     {
-        estado = true;
+        encontrada = handle.GetComponent<DefaultTrackableEventHandler>().GetGetimagemEncontra();
+        if (encontrada)
+        {
+            estado = true;
+        }
+        MudarEstado(estado);
 
-        MudarEstado(estado);        
     }
 
     public void PauseClick()
@@ -24,6 +31,5 @@ public class ControleAnimacao : MonoBehaviour
     {
         anim.SetBool("Estado", estado);
     }
-
 
 }

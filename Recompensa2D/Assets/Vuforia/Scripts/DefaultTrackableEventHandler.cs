@@ -4,6 +4,7 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using System;
 using UnityEngine;
 
 namespace Vuforia
@@ -17,13 +18,16 @@ namespace Vuforia
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
-    
+        private bool imagemEncontrada;
+        public static object Instance { get; internal set; }
+        public GameObject animControl;
+
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -52,11 +56,24 @@ namespace Vuforia
                 newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
             {
                 OnTrackingFound();
+                imagemEncontrada = true;
             }
             else
             {
                 OnTrackingLost();
+                imagemEncontrada = false;
+                PausarAnimacao();
             }
+        }
+
+        private void PausarAnimacao()
+        {
+            animControl.GetComponent<ControleAnimacao>().PauseClick();   
+        }
+
+        public bool GetGetimagemEncontra()
+        {
+            return imagemEncontrada;
         }
 
         #endregion // PUBLIC_METHODS
@@ -108,5 +125,7 @@ namespace Vuforia
         }
 
         #endregion // PRIVATE_METHODS
+
+
     }
 }
